@@ -4,9 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-
-// import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-
 import {
   Sheet,
   SheetContent,
@@ -14,42 +11,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-
 import { Moon, Sun, Menu } from "lucide-react";
+
+import NavLinks from "./NavLinks";
 
 export default function Component() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
-
-  const NavLinks = () => (
-    <>
-      <Link
-        href="/"
-        className="text-muted-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium"
-      >
-        Home
-      </Link>
-      <Link
-        href="/about"
-        className="text-muted-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium"
-      >
-        About
-      </Link>
-      <Link
-        href="/posts"
-        className="text-muted-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium"
-      >
-        Posts
-      </Link>
-      <Link
-        href="/contact"
-        className="text-muted-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium"
-      >
-        Contact
-      </Link>
-    </>
-  );
 
   return (
     <header className="border-b">

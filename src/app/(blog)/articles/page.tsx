@@ -1,7 +1,11 @@
 import { fetchAllArticles } from "@/lib/getArticles";
 import { Button } from "@/components/ui/button";
 
-export default async function ArticlesPage() {
+export const metadata = {
+  title: "Artigos",
+};
+
+export default async function Page() {
   const articles = await fetchAllArticles("sort[0]=title:asc"); // TODO remove hardcode
 
   const { data } = articles;
