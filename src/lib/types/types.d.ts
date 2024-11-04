@@ -1,3 +1,6 @@
+// TODO Move to Lib and create a File Definitions.ts
+// types.d.ts nao necessita de escrever o import e o export?
+
 type ImageFormat = {
   ext: string;
   url: string;
@@ -86,7 +89,7 @@ type SliderBlock = {
 
 type Block = RichTextBlock | QuoteBlock | SliderBlock;
 
-export type Article = {
+type Article = {
   id: number;
   documentId: string;
   title: string;
