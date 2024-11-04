@@ -1,15 +1,6 @@
-import fetchAllArticle from "@/lib/fetchAllArticles";
+import { fetchAllArticles, articleData } from "@/lib/getArticles";
 import { Suspense } from "react";
 import ArticlesInfo from "./components/ArticlesInfo";
-
-async function ArticleData(articleSlug: string) {
-  const articleData = await fetchAllArticle(
-    `populate=*&filters[slug][$eq]=${articleSlug}`
-  ); // TODO remove hardcode
-
-  const article = articleData.data[0];
-  return article;
-}
 
 export default async function ArticleDetails({
   params,
@@ -17,7 +8,7 @@ export default async function ArticleDetails({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const article = ArticleData(slug);
+  const article = articleData(slug);
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>
@@ -28,7 +19,7 @@ export default async function ArticleDetails({
 }
 
 export async function generateStaticParams() {
-  const articles = await fetchAllArticle("populate=*&fields[0]=slug"); // TODO remove hardcode
+  const articles = await fetchAllArticles("populate=*&fields[0]=slug"); // TODO remove hardcode
   return articles.data.map((article) => ({
     slug: article.slug,
   }));

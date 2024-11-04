@@ -1,4 +1,4 @@
-import fetchAllArticles from "@/lib/fetchAllArticles";
+import { fetchAllArticles } from "@/lib/getArticles";
 
 export default async function ArticlesPage() {
   const articles = await fetchAllArticles("sort[0]=title:asc"); // TODO remove hardcode

@@ -1,7 +1,7 @@
 import { ARTICLES_URL } from "@/config/app-config";
 import { ResponseData } from "@/lib/types/types";
 
-export default async function fetchAllArticles(
+export async function fetchAllArticles(
   query: string = ""
 ): Promise<ResponseData> {
   const res = await fetch(`${ARTICLES_URL}?${query}`);
@@ -11,4 +11,13 @@ export default async function fetchAllArticles(
   }
 
   return res.json();
+}
+
+export async function articleData(articleSlug: string) {
+  const articleData = await fetchAllArticles(
+    `populate=*&filters[slug][$eq]=${articleSlug}`
+  ); // TODO remove hardcode
+
+  const article = articleData.data[0];
+  return article;
 }

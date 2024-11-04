@@ -16,7 +16,7 @@ export default async function ArticlesInfo({ promise }: Props) {
         <div>
           {data.blocks.map((block) => {
             if ("body" in block) {
-              return <div key={block.id}>{block.body}</div>;
+              return <p key={block.id}>{block.body}</p>;
             }
             return null; // Retorna null para blocos que não possuem `body`
           })}
