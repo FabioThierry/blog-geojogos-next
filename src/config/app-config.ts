@@ -1,4 +1,5 @@
-export const API_URL = process.env.NEXT_PUBLIC_API_URL;
+// export const API_URL = process.env.NEXT_PUBLIC_API_URL;
+export const API_URL = process.env.STRAPI_PUBLIC_API_URL;
 
 export const ARTICLES_URL = `${API_URL}/articles`;
 export const CATEGORIES_URL = `${API_URL}/categories`;
