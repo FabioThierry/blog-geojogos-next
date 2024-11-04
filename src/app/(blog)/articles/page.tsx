@@ -1,4 +1,5 @@
 import { fetchAllArticles } from "@/lib/getArticles";
+import { Button } from "@/components/ui/button";
 
 export default async function ArticlesPage() {
   const articles = await fetchAllArticles("sort[0]=title:asc"); // TODO remove hardcode
@@ -14,6 +15,7 @@ export default async function ArticlesPage() {
         return (
           <article key={article.id}>
             <h3>{article.title}</h3>
+            <Button variant="outline">Button</Button>
 
             <p>{article.description}</p>
             <hr />
