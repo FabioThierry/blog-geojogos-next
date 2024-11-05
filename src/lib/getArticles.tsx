@@ -1,6 +1,7 @@
 import { ARTICLES_URL } from "@/config/app-config";
 import { ResponseData } from "@/lib/types/types";
 
+// Fetch all articles and return them the promise
 export async function fetchAllArticles(
   query: string = ""
 ): Promise<ResponseData> {
@@ -13,6 +14,7 @@ export async function fetchAllArticles(
   return res.json();
 }
 
+// Fetch single article and return it the data
 export async function articleData(articleSlug: string) {
   const articleData = await fetchAllArticles(
     `populate=*&filters[slug][$eq]=${articleSlug}`
