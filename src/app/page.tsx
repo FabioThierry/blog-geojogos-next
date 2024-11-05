@@ -1,8 +1,17 @@
-export default function Page() {
+import Hero from "@/components/Hero";
+import Featured from "@/components/FeaturedPosts";
+import Recently from "@/components/RecentlyPublished";
+
+export default function HomePage() {
   return (
-    <>
-      <h1>Home</h1>
-      <h3>Hello</h3>
-    </>
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <Hero />
+      {/* Featured Posts Section */}
+      <Featured />
+
+      {/* Recently Published Section */}
+      <Recently />
+    </main>
   );
 }
