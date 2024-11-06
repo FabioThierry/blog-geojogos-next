@@ -1,29 +1,6 @@
 import React from "react";
 import Image from "next/image";
 
-interface Image {
-  id: number;
-  documentId: string;
-  url: string;
-  alternativeText: string | null;
-}
-
-interface Link {
-  id: number;
-  url: string;
-  label: string;
-}
-
-interface HeroSectionProps {
-  id: number;
-  documentId: string;
-  __component: string;
-  heading: string;
-  subHeading: string;
-  image: Image;
-  link: Link;
-}
-
 export default async function index({
   props,
 }: {
