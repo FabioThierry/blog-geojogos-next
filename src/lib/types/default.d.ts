@@ -1,5 +1,9 @@
-// TODO Move to Lib and create a File Definitions.ts
-// types.d.ts nao necessita de escrever o import e o export?
+type Image = {
+  id: number;
+  documentId: string;
+  url: string;
+  alternativeText: string | null;
+};
 
 type ImageFormat = {
   ext: string;
@@ -32,6 +36,7 @@ type Cover = {
     medium: ImageFormat;
     thumbnail: ImageFormat;
   };
+
   hash: string;
   ext: string;
   mime: string;
@@ -46,62 +51,6 @@ type Cover = {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-};
-
-type Author = {
-  id: number;
-  documentId: string;
-  name: string;
-  email: string | null;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-};
-
-type Category = {
-  id: number;
-  documentId: string;
-  name: string;
-  slug: string;
-  description: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-};
-
-type RichTextBlock = {
-  __component: "shared.rich-text";
-  id: number;
-  body: string;
-};
-
-type QuoteBlock = {
-  __component: "shared.quote";
-  id: number;
-  title: string;
-  body: string;
-};
-
-type SliderBlock = {
-  __component: "shared.slider";
-  id: number;
-};
-
-type Block = RichTextBlock | QuoteBlock | SliderBlock;
-
-type Article = {
-  id: number;
-  documentId: string;
-  title: string;
-  description: string;
-  slug: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  cover: Cover;
-  author: Author;
-  category: Category;
-  blocks: Block[];
 };
 
 type MetaPagination = {
