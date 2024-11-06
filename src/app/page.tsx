@@ -3,6 +3,9 @@ import qs from "qs";
 import Hero from "@/components/Hero";
 import Featured from "@/components/FeaturedPosts";
 import Recently from "@/components/RecentlyPublished";
+import getStrapiData from "@/lib/getStrapiData";
+
+const homePagePath = "/api/home-page";
 
 const homePageQuery = qs.stringify({
   populate: {
@@ -23,25 +26,10 @@ const homePageQuery = qs.stringify({
   },
 });
 
-async function getStrapiData(path: string) {
-  const baseUrl = "http://localhost:1337";
-
-  const url = new URL(path, baseUrl);
-  url.search = homePageQuery;
-
-  try {
-    const response = await fetch(url.href);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
 export default async function HomePage() {
-  const strapiData = await getStrapiData("/api/home-page");
+  const strapiData = await getStrapiData(homePagePath, homePageQuery);
 
-  console.dir(strapiData, { depth: null });
+  // console.dir(strapiData, { depth: null });
 
   const { blocks } = strapiData.data;
 
