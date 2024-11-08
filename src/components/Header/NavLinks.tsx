@@ -10,13 +10,13 @@ export default function NavLinks() {
         Início
       </Link>
       <Link
-        href="/articles"
+        href="/blog"
         className="text-muted-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium"
       >
         Postagens
       </Link>
       <Link
-        href="/about"
+        href="/sobre"
         className="text-muted-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium"
       >
         Sobre
