@@ -64,7 +64,17 @@ type Meta = {
   pagination: MetaPagination;
 };
 
-export type ResponseData = {
-  data: Article[];
+// export type ResponseData = {
+//   data: Article[] | Category[] | Author[] | HeroSectionProps;
+//   meta: Meta;
+// };
+
+export type ResponseData<T> = {
+  data: T;
   meta: Meta;
 };
+
+// export type ArticleResponse = ResponseData<Article[]>;
+// export type CategoryResponse = ResponseData<Category[]>;
+// export type AuthorResponse = ResponseData<Author[]>;
+// export type HeroSectionResponse = ResponseData<HeroSectionProps>;

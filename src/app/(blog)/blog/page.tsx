@@ -3,10 +3,12 @@ import qs from "qs";
 // import { Button } from "@/components/ui/button";
 import getStrapiData from "@/lib/getStrapiData";
 import Recently from "@/components/RecentlyPublished";
+import { ResponseData } from "@/lib/types/default";
 
 export const metadata = {
   title: "Artigos",
 };
+
 const articlesPath = "/api/articles";
 
 const articlesQuery = qs.stringify({
@@ -27,11 +29,21 @@ const articlesQuery = qs.stringify({
 });
 
 export default async function Page() {
-  const strapiData = await getStrapiData(articlesPath, articlesQuery);
+  const strapiData: ResponseData<Article[]> = await getStrapiData(
+    articlesPath,
+    articlesQuery
+  );
 
-  const { blocks, cover } = strapiData.data;
-  console.dir(blocks, { depth: null } + "\n" + cover);
-  return <Recently />;
+  // strapiData.data.forEach((item) => {
+  // //   const { blocks, cover } = item;
+  // //   console.log(blocks, cover);
+  // // });
+
+  return (
+    <>
+      <Recently articles={strapiData.data} />
+    </>
+  );
 }
 
 // const content = (

@@ -2,7 +2,7 @@ import qs from "qs";
 
 import Hero from "@/components/Hero";
 import Featured from "@/components/FeaturedPosts";
-import Recently from "@/components/RecentlyPublished";
+// import Recently from "@/components/RecentlyPublished";
 import getStrapiData from "@/lib/getStrapiData";
 
 const homePagePath = "/api/home-page";
@@ -41,7 +41,7 @@ export default async function HomePage() {
       <Featured />
 
       {/* Recently Published Section */}
-      <Recently />
+      {/* <Recently /> */}
     </main>
   );
 }
