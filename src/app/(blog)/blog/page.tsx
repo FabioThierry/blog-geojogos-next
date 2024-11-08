@@ -3,7 +3,6 @@ import qs from "qs";
 // import { Button } from "@/components/ui/button";
 import getStrapiData from "@/lib/getStrapiData";
 import Recently from "@/components/RecentlyPublished";
-import { ResponseData } from "@/lib/types/default";
 
 export const metadata = {
   title: "Artigos",
@@ -33,12 +32,6 @@ export default async function Page() {
     articlesPath,
     articlesQuery
   );
-
-  // strapiData.data.forEach((item) => {
-  // //   const { blocks, cover } = item;
-  // //   console.log(blocks, cover);
-  // // });
-
   return (
     <>
       <Recently articles={strapiData.data} />

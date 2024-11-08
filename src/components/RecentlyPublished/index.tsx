@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { CalendarIcon, ClockIcon } from "lucide-react";
 
-type RecentlyProps = {
+type Props = {
   articles: Article[];
 };
 
-export default function index({ articles }: RecentlyProps) {
+export default function index({ articles }: Props) {
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">

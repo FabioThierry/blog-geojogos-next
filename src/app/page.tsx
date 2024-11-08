@@ -27,11 +27,13 @@ const homePageQuery = qs.stringify({
 });
 
 export default async function HomePage() {
-  const strapiData = await getStrapiData(homePagePath, homePageQuery);
-
-  // console.dir(strapiData, { depth: null });
+  const strapiData: ResponseData<HomePage> = await getStrapiData(
+    homePagePath,
+    homePageQuery
+  );
 
   const { blocks } = strapiData.data;
+  // console.dir(strapiData, { depth: null });
 
   return (
     <main className="min-h-screen">
