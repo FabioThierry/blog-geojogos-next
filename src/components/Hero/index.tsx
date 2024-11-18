@@ -4,7 +4,7 @@ import Image from "next/image";
 export default async function index({
   props,
 }: {
-  readonly props: HeroSectionProps;
+  readonly props: HeroSection;
 }) {
   // console.dir(data, { depth: null });
   const { heading, subHeading, image } = props;

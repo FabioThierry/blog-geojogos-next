@@ -1,8 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Menu } from "lucide-react";
+import { useState } from "react";
+
+import ShimmerButton from "../magicui/shimmer-button";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -11,46 +14,72 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Moon, Sun, Menu } from "lucide-react";
 
 import NavLinks from "./NavLinks";
 
-export default function Component() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Header() {
+  const [activeTab, setActiveTab] = useState("home");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setActiveTab(sectionId);
+    setMobileMenuOpen(false);
+  };
 
   return (
-    <header className="border-b">
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/30 border-b border-gray-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0">
-              {/* //TODO: Change logo */}
-              <Image
-                src="/logo.png"
-                alt="GeoJogos Logo"
-                width={32}
-                height={32}
-                className="h-8 w-auto"
-              />
-            </Link>
-            <nav className="hidden md:ml-6 md:flex md:space-x-4">
-              <NavLinks />
-            </nav>
-          </div>
-          <div className="flex items-center">
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Toggle theme"
-              className="mr-2"
-              onClick={toggleMenu}
+        <div className="flex justify-between items-center h-16">
+          <Link
+            href="/"
+            className="flex-shrink-0 inline-flex space-x-5 items-center"
+          >
+            <Image
+              src="/logo.png"
+              alt="GeoJogos Logo"
+              width={50}
+              height={50}
+              className="h-10 w-auto"
+            />
+            <h1 className=" text-xl font-bold text-green-800 ">GeoJogos</h1>
+          </Link>
+          <nav className="container mx-auto px-4 py-4">
+            <ul
+              className={`flex flex-col lg:flex-row justify-center space-y-2 lg:space-y-0 lg:space-x-6 mt-4 lg:mt-0 ${
+                mobileMenuOpen ? "block" : "hidden lg:flex"
+              }`}
             >
-              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
+              {["jogos", "blog", "sobre"].map((tab) => (
+                <li key={tab}>
+                  <Button
+                    variant={activeTab === tab ? "default" : "ghost"}
+                    onClick={() => {
+                      setActiveTab(tab);
+                      setMobileMenuOpen(false);
+                      scrollToSection(tab);
+                    }}
+                    className="w-full lg:w-auto text-sm font-medium"
+                  >
+                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                  </Button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="z-10 items-center justify-center sm:block hidden">
+            <ShimmerButton className="shadow-2xl bg-green-600 hover:bg-green-700  ">
+              {/* <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+                  Descubra nossos jogos
+                </span> */}
+              Hire Us
+            </ShimmerButton>
+          </div>
+
+          <div className="flex items-center">
             <Sheet>
               <SheetTrigger asChild>
                 <Button
@@ -66,6 +95,7 @@ export default function Component() {
                 <SheetHeader>
                   <SheetTitle className="hidden">Navegação</SheetTitle>
                 </SheetHeader>
+
                 <nav className="flex flex-col space-y-4 mt-4">
                   <NavLinks />
                 </nav>

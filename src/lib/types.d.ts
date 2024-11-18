@@ -5,12 +5,12 @@
 type Link = {
   id: number;
   url: string;
-  label: string;
+  text: string;
 };
 
 // Layout
 
-type HeroSectionProps = {
+type HeroSection = {
   id: number;
   documentId: string;
   __component: string;
@@ -18,6 +18,15 @@ type HeroSectionProps = {
   subHeading: string;
   image: Image;
   link: Link;
+};
+
+type AboutSection = {
+  id: number;
+  previousHeading: string;
+  heading: string;
+  documentId: string;
+  __component: string;
+  cards: Card[];
 };
 
 type HomePage = {
@@ -29,10 +38,17 @@ type HomePage = {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  blocks: HeroSectionProps[];
+  blocks: Block[];
 };
 
 // Shared
+
+type Card = {
+  id: number;
+  title: string;
+  description: string;
+  content: string;
+};
 
 type RichTextBlock = {
   __component: "shared.rich-text";
@@ -52,7 +68,7 @@ type SliderBlock = {
   id: number;
 };
 
-type Block = RichTextBlock | QuoteBlock | SliderBlock;
+type Block = AboutSection | HeroSection;
 
 // Collection
 
