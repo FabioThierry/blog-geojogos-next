@@ -72,7 +72,21 @@ type Block = AboutSection | HeroSection;
 
 // Collection
 
-type Article = {
+type Games = {
+  id: number;
+  documentId: string;
+  name: string;
+  description: string;
+  //slug: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  cover: Cover;
+  author: Author;
+  //images: null;
+  // main_information: MainInformation;
+};
+type Articles = {
   id: number;
   documentId: string;
   title: string;
@@ -185,7 +199,7 @@ type ResponseData<T> = {
 };
 
 // export type ResponseData = {
-//   data: Article[] | Category[] | Author[] | HeroSectionProps;
+//   data: Articles[] | Category[] | Author[] | HeroSectionProps;
 //   meta: Meta;
 // };
 // export type ArticleResponse = ResponseData<Article[]>;

@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Exo } from "next/font/google";
 import "@/components/styles/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const exo = Exo({
+  subsets: ["latin"],
+  variable: "--font-exo",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +15,7 @@ export const metadata: Metadata = {
     default: "GeoJogos",
   },
   description: "GeoJogos",
-  applicationName: "Blog",
+  applicationName: "Website",
 };
 
 export default function RootLayout({
@@ -31,9 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${exo.variable} antialiased`}>
         <Header />
         {children}
         <Footer />

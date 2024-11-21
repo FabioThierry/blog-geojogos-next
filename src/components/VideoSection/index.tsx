@@ -10,9 +10,9 @@ export default function VideoSection() {
         <HeroVideoDialog
           className="w-full block "
           animationStyle="from-center"
-          videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
-          thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
-          thumbnailAlt="Hero Video"
+          videoSrc="https://www.youtube.com/embed/jxB113j8vHY?si=VujuM4bSI61mZRae"
+          thumbnailSrc="https://img.itch.zone/aW1nLzE2NzM1NjAzLmpwZw==/original/b382EZ.jpg"
+          thumbnailAlt="Minecraft Video"
         />
       </div>
     </section>

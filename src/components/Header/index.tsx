@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Menu } from "lucide-react";
 import { useState } from "react";
 
-import ShimmerButton from "../magicui/shimmer-button";
+// import ShimmerButton from "../magicui/shimmer-button";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -39,7 +39,7 @@ export default function Header() {
             className="flex-shrink-0 inline-flex space-x-5 items-center"
           >
             <Image
-              src="/logo.png"
+              src="/geojogos.svg"
               alt="GeoJogos Logo"
               width={50}
               height={50}
@@ -71,12 +71,12 @@ export default function Header() {
             </ul>
           </nav>
           <div className="z-10 items-center justify-center sm:block hidden">
-            <ShimmerButton className="shadow-2xl bg-green-600 hover:bg-green-700  ">
+            {/* <ShimmerButton className="shadow-2xl bg-green-600 hover:bg-green-700  ">
               {/* <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
                   Descubra nossos jogos
-                </span> */}
-              Hire Us
-            </ShimmerButton>
+                </span> 
+             Hire Us
+            </ShimmerButton>  */}
           </div>
 
           <div className="flex items-center">

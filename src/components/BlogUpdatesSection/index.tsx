@@ -1,3 +1,4 @@
+import { formatDateToLong } from "@/lib/formatDate";
 import {
   Card,
   CardContent,
@@ -7,34 +8,47 @@ import {
 } from "@/components/ui/card";
 
 // Sample data
-const latestUpdates = [
-  {
-    title: "New Feature Launch",
-    date: "2024-03-15",
-    description: "We've just launched our new AI-powered search feature!",
-  },
-  {
-    title: "Website Redesign",
-    date: "2024-03-10",
-    description: "Check out our fresh new look and improved user experience.",
-  },
-  {
-    title: "Community Milestone",
-    date: "2024-03-05",
-    description:
-      "We've reached 100,000 active users! Thank you for your support.",
-  },
-];
+// const latestUpdates = [
+//   {
+//     title: "New Feature Launch",
+//     date: "2024-03-15",
+//     description: "We've just launched our new AI-powered search feature!",
+//   },
+//   {
+//     title: "Website Redesign",
+//     date: "2024-03-10",
+//     description: "Check out our fresh new look and improved user experience.",
+//   },
+//   {
+//     title: "Community Milestone",
+//     date: "2024-03-05",
+//     description:
+//       "We've reached 100,000 active users! Thank you for your support.",
+//   },
+// ];
 
-export default function BlogUpdatesSection() {
+export default function BlogUpdatesSection({ props }: { props: Articles[] }) {
   return (
     <section id="updates" className="my-12 container mx-auto px-4">
       <div className="relative container mx-auto px-4 py-16 max-w-7xl">
         <h2 className="text-3xl font-bold mb-6 text-center text-green-800">
-          Latest Updates
+          Últimas Postagens
         </h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-12">
-          {latestUpdates.map((update, index) => (
+          {props.reverse().map((article) => (
+            <Card key={article.id}>
+              <CardHeader>
+                <CardTitle>{article.title}</CardTitle>
+                <CardDescription>
+                  {formatDateToLong(article.publishedAt)}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>{article.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+          {/* {latestUpdates.map((update, index) => (
             <Card key={index}>
               <CardHeader>
                 <CardTitle>{update.title}</CardTitle>
@@ -44,7 +58,7 @@ export default function BlogUpdatesSection() {
                 <p>{update.description}</p>
               </CardContent>
             </Card>
-          ))}
+          ))} */}
         </div>
       </div>
     </section>

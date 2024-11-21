@@ -8,38 +8,39 @@ import { Button } from "../ui/button";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "../ui/card";
 
-export default function CarouselSection() {
+export default function CarouselSection({ props }: { props: Games[] }) {
   const [visibleSlides, setVisibleSlides] = useState(4);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const games = [
-    {
-      title: "GeoQuest",
-      description: "Explore the world through exciting quests and challenges.",
-    },
-    {
-      title: "MapMaster",
-      description:
-        "Become a master of maps and navigation in this thrilling adventure.",
-    },
-    {
-      title: "CultureCraft",
-      description:
-        "Build and manage your own virtual country while learning about world cultures.",
-    },
-    {
-      title: "EcoExplorer",
-      description:
-        "Discover and protect diverse ecosystems in this environmental adventure.",
-    },
-    {
-      title: "HistoryHunt",
-      description:
-        "Travel through time and uncover historical mysteries across the globe.",
-    },
-  ];
+  const games = props;
+  // const games = [
+  //   {
+  //     title: "GeoQuest",
+  //     description: "Explore the world through exciting quests and challenges.",
+  //   },
+  //   {
+  //     title: "MapMaster",
+  //     description:
+  //       "Become a master of maps and navigation in this thrilling adventure.",
+  //   },
+  //   {
+  //     title: "CultureCraft",
+  //     description:
+  //       "Build and manage your own virtual country while learning about world cultures.",
+  //   },
+  //   {
+  //     title: "EcoExplorer",
+  //     description:
+  //       "Discover and protect diverse ecosystems in this environmental adventure.",
+  //   },
+  //   {
+  //     title: "HistoryHunt",
+  //     description:
+  //       "Travel through time and uncover historical mysteries across the globe.",
+  //   },
+  // ];
   useEffect(() => {
     if (carouselRef.current) {
       carouselRef.current.style.transform = `translateX(-${
@@ -109,7 +110,7 @@ export default function CarouselSection() {
       const game = games[i % games.length];
       cards.push(
         <div
-          key={`${game.title}-${i}`}
+          key={`${game.name}-${i}`}
           className={`px-2 flex-shrink-0`}
           style={{ width: `${100 / visibleSlides}%` }}
         >
@@ -121,15 +122,15 @@ export default function CarouselSection() {
             <Card className="h-full overflow-hidden group hover:shadow-lg transition-shadow duration-300">
               <div className="relative h-48">
                 <Image
-                  src={`/placeholder.svg`}
-                  alt={game.title}
+                  src={game.cover.url}
+                  alt={game.name}
                   layout="fill"
                   objectFit="cover"
                   className="transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <CardContent className="text-white text-center">
-                    <h3 className="text-lg font-bold mb-2">{game.title}</h3>
+                    <h3 className="text-lg font-bold mb-2">{game.name}</h3>
                     <p className="text-sm">{game.description}</p>
                   </CardContent>
                 </div>
