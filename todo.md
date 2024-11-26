@@ -12,3 +12,4 @@
   - [ ] Feijao o Pombo
 - [ ] Create a generic page for each post
 - [ ] Create an about page
+- [ ] Adicionar sombras

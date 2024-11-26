@@ -1,6 +1,14 @@
 import { Dices, Earth, Gamepad2 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+/**
+ * The AboutSection component is a hero section for the about page.
+ *
+ * @prop {AboutSection} props - The props of the AboutSection component.
+ * @prop {string} props.previousHeading - The previous heading of the section.
+ * @prop {string} props.heading - The heading of the section.
+ * @prop {Card[]} props.cards - The cards of the section.
+ */
 export default function AboutSection({ props }: { props: AboutSection }) {
   const { cards, previousHeading, heading } = props;
   return (

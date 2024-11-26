@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Menu } from "lucide-react";
 import { useState } from "react";
 
-// import ShimmerButton from "../magicui/shimmer-button";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -17,6 +16,20 @@ import {
 
 import NavLinks from "./NavLinks";
 
+/**
+ * The Header component renders a sticky navigation header with a logo and navigation links.
+ * It includes functionality to scroll smoothly to different sections of the page.
+ *
+ * @component
+ *
+ * @returns {JSX.Element} The rendered Header component.
+ *
+ * @example
+ * <Header />
+ *
+ * The header contains a logo linking to the homepage and navigation buttons for "jogos", "blog", and "sobre".
+ * It supports mobile responsiveness by toggling a menu with a button.
+ */
 export default function Header() {
   const [activeTab, setActiveTab] = useState("home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

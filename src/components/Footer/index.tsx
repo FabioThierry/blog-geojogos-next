@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
+/**
+ * Footer component with main company logo and info, partner/minor company logos, and links to other pages.
+ *
+ * @returns The Footer component.
+ */
 export default function Footer() {
   return (
     <footer className="bg-gray-100">

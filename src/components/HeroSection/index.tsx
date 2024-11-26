@@ -5,7 +5,14 @@ import DotPattern from "../magicui/dot-pattern";
 import ShimmerButton from "../magicui/shimmer-button";
 import { WordFadeIn } from "../magicui/word-fade-in";
 import { cn } from "@/lib/utils";
-
+/**
+ * The HeroSection component is a hero section for the home page.
+ *
+ * @prop {HeroSection} props - The props of the HeroSection component.
+ * @prop {string} props.heading - The heading of the hero section.
+ * @prop {string} props.subHeading - The subheading of the hero section.
+ * @prop {Link} props.link - The link to the button of the hero section.
+ */
 export default function HeroSection({ props }: { props: HeroSection }) {
   const { heading, subHeading, link } = props;
   console.log("link", link);
@@ -24,14 +31,9 @@ export default function HeroSection({ props }: { props: HeroSection }) {
         />
         <WordFadeIn
           words={heading}
-          className="text-5xl font-bold mb-4 text-green-800"
+          className="text-5xl font-bold mb-4 text-green-800 "
         />
 
-        {/* <h1 className="text-5xl font-bold mb-4 text-green-800">
-        Explorando o mundo
-        <br />
-        através de jogos educacionais
-      </h1> */}
         <p className="text-xl my-6 text-gray-600 text-center justify-center px-30 mx-20 py-10 ">
           {subHeading}
         </p>
@@ -46,9 +48,6 @@ export default function HeroSection({ props }: { props: HeroSection }) {
             </span>
           </ShimmerButton>
         </div>
-        {/* <Button size="lg" className="bg-green-600 hover:bg-green-700">
-        Descubra nossos jogos
-      </Button> */}
       </motion.div>
     </section>
   );

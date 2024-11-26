@@ -1,13 +1,19 @@
 "use client";
 
-import Image from "next/image";
-
 import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "../ui/button";
 import { motion } from "framer-motion";
-import { Card, CardContent } from "../ui/card";
 
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+
+/**
+ * A carousel section for displaying games.
+ *
+ * @param {Games[]} props.games - The list of games to display.
+ * @returns {JSX.Element} The rendered CarouselSection component.
+ */
 export default function CarouselSection({ props }: { props: Games[] }) {
   const [visibleSlides, setVisibleSlides] = useState(4);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,32 +21,7 @@ export default function CarouselSection({ props }: { props: Games[] }) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const games = props;
-  // const games = [
-  //   {
-  //     title: "GeoQuest",
-  //     description: "Explore the world through exciting quests and challenges.",
-  //   },
-  //   {
-  //     title: "MapMaster",
-  //     description:
-  //       "Become a master of maps and navigation in this thrilling adventure.",
-  //   },
-  //   {
-  //     title: "CultureCraft",
-  //     description:
-  //       "Build and manage your own virtual country while learning about world cultures.",
-  //   },
-  //   {
-  //     title: "EcoExplorer",
-  //     description:
-  //       "Discover and protect diverse ecosystems in this environmental adventure.",
-  //   },
-  //   {
-  //     title: "HistoryHunt",
-  //     description:
-  //       "Travel through time and uncover historical mysteries across the globe.",
-  //   },
-  // ];
+
   useEffect(() => {
     if (carouselRef.current) {
       carouselRef.current.style.transform = `translateX(-${
@@ -144,9 +125,6 @@ export default function CarouselSection({ props }: { props: Games[] }) {
   };
   return (
     <section id="games" className="container mx-auto px-4 py-16">
-      {/* <h2 className="text-3xl font-bold mb-8 text-center text-green-800">
-      Our Games
-    </h2> */}
       <div
         className="relative overflow-hidden"
         onMouseEnter={handleMouseEnter}

@@ -9,6 +9,14 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { MagicCard } from "@/components/ui/magic-card";
 
+/**
+ * The BlogUpdatesSection component displays the latest blog articles.
+ *
+ * @param {Object} props - The properties object.
+ * @param {Articles[]} props - An array of article objects to display.
+ *
+ * @returns {JSX.Element} The rendered BlogUpdatesSection component.
+ */
 export default function BlogUpdatesSection({ props }: { props: Articles[] }) {
   return (
     <section id="updates" className="my-12 container mx-auto px-4">

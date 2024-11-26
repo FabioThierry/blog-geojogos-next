@@ -1,6 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
+/**
+ * A component that renders a section of featured posts.
+ *
+ * @returns A `section` element with a heading, a grid of 3 featured posts, and a container.
+ *
+ * The component renders a section with a light gray background and a heading that says "Featured Posts".
+ * The component uses a grid to lay out 3 featured posts. Each featured post is a `div` element with a
+ * white background, rounded corners, and a shadow. The featured post `div` contains an `Image` element
+ * with a placeholder image, a heading, a paragraph of text, and a `Link` element with text that says "Read more".
+ */
 export default function index() {
   return (
     <section className="py-12 bg-gray-100">
