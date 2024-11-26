@@ -35,12 +35,15 @@ export default function HeroSection({ props }: { props: HeroSection }) {
         <p className="text-xl my-6 text-gray-600 text-center justify-center px-30 mx-20 py-10 ">
           {subHeading}
         </p>
-        <div className="z-10 flex items-center justify-center">
-          <ShimmerButton className="shadow-2xl bg-green-600 hover:bg-green-700  ">
-            {/* <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-            Descubra nossos jogos
-          </span> */}
-            {link.text}
+        <div className="z-10 flex items-center justify-center ">
+          <ShimmerButton
+            className="shadow-2xl"
+            borderRadius="12px"
+            background="#16a34a"
+          >
+            <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+              {link.text}
+            </span>
           </ShimmerButton>
         </div>
         {/* <Button size="lg" className="bg-green-600 hover:bg-green-700">

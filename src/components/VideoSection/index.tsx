@@ -1,6 +1,8 @@
-import HeroVideoDialog from "../magicui/hero-video-dialog";
+import { HeroVideoDialog } from "@/components/magicui/hero-video-dialog";
 
-export default function VideoSection() {
+export default function VideoSection({ props }: { props: Video }) {
+  const { VideoSrc, thumbnailSrc } = props;
+
   return (
     <section
       id="video"
@@ -10,9 +12,16 @@ export default function VideoSection() {
         <HeroVideoDialog
           className="w-full block "
           animationStyle="from-center"
-          videoSrc="https://www.youtube.com/embed/jxB113j8vHY?si=VujuM4bSI61mZRae"
-          thumbnailSrc="https://img.itch.zone/aW1nLzE2NzM1NjAzLmpwZw==/original/b382EZ.jpg"
-          thumbnailAlt="Minecraft Video"
+          videoSrc={VideoSrc}
+          thumbnailSrc={thumbnailSrc.url}
+          thumbnailAlt={thumbnailSrc.alternativeText || "Hero Video"}
+        />
+        <HeroVideoDialog
+          className="hidden dark:block"
+          animationStyle="top-in-bottom-out"
+          videoSrc={VideoSrc}
+          thumbnailSrc={thumbnailSrc.url}
+          thumbnailAlt={thumbnailSrc.alternativeText || "Hero Video"}
         />
       </div>
     </section>

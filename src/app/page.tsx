@@ -33,8 +33,21 @@ const homePageQuery = qs.stringify({
             },
           },
         },
+        "components.video": {
+          populate: {
+            thumbnailSrc: {
+              fields: ["url", "alternativeText"],
+            },
+          },
+        },
       },
     },
+  },
+});
+const articlesQuery = qs.stringify({
+  populate: {
+    category: { fields: ["name"] },
+    author: { fields: ["name"] },
   },
 });
 
@@ -49,7 +62,7 @@ export default async function HomePage() {
   );
   const blogPostsStrapiData: ResponseData<Articles[]> = await getStrapiData(
     articlesPath,
-    ""
+    articlesQuery
   );
   const gamesStrapiData: ResponseData<Games[]> = await getStrapiData(
     gamesPath,
@@ -59,21 +72,23 @@ export default async function HomePage() {
   const { blocks } = homePageStrapiData.data;
   const heroSection = blocks[0] as HeroSection;
   const aboutSection = blocks[1] as AboutSection;
+  const video = blocks[2] as Video;
 
   const blogPosts = blogPostsStrapiData.data;
   const games = gamesStrapiData.data;
 
-  // // console.dir(strapiData, { depth: null });
+  // console.dir(homePageStrapiData.data, { depth: null });
+  console.dir(blogPostsStrapiData.data, { depth: null });
   // console.log("Hero Section:", heroSection);
-  console.log("Hero Section:", aboutSection);
-  console.log("GAMES Data:", games[0]);
+  // console.log("Hero Section:", aboutSection);
+  // console.log("GAMES Data:", games[0]);
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-blue-50">
       <main className="container mx-auto px-4 py-8">
         <HeroSection props={heroSection} />
         <CarouselSection props={games} />
         <AboutSection props={aboutSection} />
-        <VideoSection />
+        <VideoSection props={video} />
         <BlogUpdatesSection props={blogPosts} />
       </main>
     </div>

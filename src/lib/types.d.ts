@@ -8,6 +8,12 @@ type Link = {
   text: string;
 };
 
+type Video = {
+  id: number;
+  VideoSrc: string;
+  thumbnailSrc: Image;
+};
+
 // Layout
 
 type HeroSection = {
@@ -68,7 +74,7 @@ type SliderBlock = {
   id: number;
 };
 
-type Block = AboutSection | HeroSection;
+type Block = AboutSection | HeroSection | Video;
 
 // Collection
 

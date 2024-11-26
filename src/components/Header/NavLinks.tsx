@@ -19,7 +19,7 @@ export default function NavLinks() {
         href="/sobre"
         className="text-muted-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium"
       >
-        Sobre
+        Contato
       </Link>
     </>
   );

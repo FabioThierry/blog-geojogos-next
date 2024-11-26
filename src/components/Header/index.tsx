@@ -33,7 +33,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/30 border-b border-gray-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 relative">
           <Link
             href="/"
             className="flex-shrink-0 inline-flex space-x-5 items-center"
@@ -45,9 +45,9 @@ export default function Header() {
               height={50}
               className="h-10 w-auto"
             />
-            <h1 className=" text-xl font-bold text-green-800 ">GeoJogos</h1>
+            <h1 className=" text-xl font-bold text-green-800">GeoJogos</h1>
           </Link>
-          <nav className="container mx-auto px-4 py-4">
+          <nav className="container mx-auto px-4 py-4 absolute">
             <ul
               className={`flex flex-col lg:flex-row justify-center space-y-2 lg:space-y-0 lg:space-x-6 mt-4 lg:mt-0 ${
                 mobileMenuOpen ? "block" : "hidden lg:flex"

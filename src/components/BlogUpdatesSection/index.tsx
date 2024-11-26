@@ -1,31 +1,13 @@
 import { formatDateToLong } from "@/lib/formatDate";
 import {
-  Card,
   CardContent,
   CardHeader,
   CardTitle,
   CardDescription,
+  CardFooter,
 } from "@/components/ui/card";
-
-// Sample data
-// const latestUpdates = [
-//   {
-//     title: "New Feature Launch",
-//     date: "2024-03-15",
-//     description: "We've just launched our new AI-powered search feature!",
-//   },
-//   {
-//     title: "Website Redesign",
-//     date: "2024-03-10",
-//     description: "Check out our fresh new look and improved user experience.",
-//   },
-//   {
-//     title: "Community Milestone",
-//     date: "2024-03-05",
-//     description:
-//       "We've reached 100,000 active users! Thank you for your support.",
-//   },
-// ];
+import { Badge } from "@/components/ui/badge";
+import { MagicCard } from "@/components/ui/magic-card";
 
 export default function BlogUpdatesSection({ props }: { props: Articles[] }) {
   return (
@@ -36,29 +18,36 @@ export default function BlogUpdatesSection({ props }: { props: Articles[] }) {
         </h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-12">
           {props.reverse().map((article) => (
-            <Card key={article.id}>
+            <MagicCard
+              key={article.id}
+              gradientColor="#dcfce7"
+              className="cursor-pointer flex-col items-center justify-center rounded-xl border bg-card text-card-foreground shadow"
+            >
               <CardHeader>
-                <CardTitle>{article.title}</CardTitle>
+                <CardTitle className="text-xl font-semibold">
+                  {article.title}
+                </CardTitle>
                 <CardDescription>
-                  {formatDateToLong(article.publishedAt)}
+                  <Badge className="my-2" variant="default">
+                    {article.category.name}{" "}
+                  </Badge>
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p>{article.description}</p>
               </CardContent>
-            </Card>
+              <CardFooter>
+                <div className="flex items-baseline flex-wrap flex-col justify-between content-end">
+                  <Badge variant="outline" className="mb-2">
+                    {article.author.name}
+                  </Badge>
+                  <Badge variant="secondary">
+                    {formatDateToLong(article.updatedAt)}
+                  </Badge>
+                </div>
+              </CardFooter>
+            </MagicCard>
           ))}
-          {/* {latestUpdates.map((update, index) => (
-            <Card key={index}>
-              <CardHeader>
-                <CardTitle>{update.title}</CardTitle>
-                <CardDescription>{update.date}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>{update.description}</p>
-              </CardContent>
-            </Card>
-          ))} */}
         </div>
       </div>
     </section>
