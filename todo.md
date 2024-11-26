@@ -1,0 +1,13 @@
+- [ ] Align the nav buttons
+- [ ] Fix the hover effect of the main button
+- [ ] Change the color of the video play button
+- [ ] Create more detailed blog posts
+- [ ] Improve the footer
+- [ ] Create a page for each game
+  - [ ] Alavantu
+  - [ ] Jump in CG
+  - [ ] Limpa Riacho
+  - [ ] Além Mar
+  - [ ] Expedição Paraíba
+- [ ] Create a generic page for each post
+- [ ] Create an about page
