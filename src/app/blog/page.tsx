@@ -3,6 +3,7 @@ import qs from "qs";
 // import { Button } from "@/components/ui/button";
 import getStrapiData from "@/lib/getStrapiData";
 import Recently from "@/components/RecentlyPublished";
+import BlogUpdatesSection from "@/components/BlogUpdatesSection";
 
 export const metadata = {
   title: "Artigos",
@@ -12,29 +13,21 @@ const articlesPath = "/api/articles";
 
 const articlesQuery = qs.stringify({
   populate: {
-    cover: { fields: ["*"] },
-    blocks: {
-      on: {
-        "shared.slider": {
-          populate: {
-            files: {
-              fields: ["url", "alternativeText"],
-            },
-          },
-        },
-      },
-    },
+    category: { fields: ["name"] },
+    author: { fields: ["name"] },
   },
 });
-
-export default async function Page() {
-  const strapiData: ResponseData<Article[]> = await getStrapiData(
+export default async function Blog() {
+  const strapiData: ResponseData<Articles[]> = await getStrapiData(
     articlesPath,
     articlesQuery
   );
+
+  const blogPosts = strapiData.data;
   return (
     <>
-      <Recently articles={strapiData.data} />
+      <BlogUpdatesSection props={blogPosts} />
+      <Recently props={strapiData.data} />
     </>
   );
 }

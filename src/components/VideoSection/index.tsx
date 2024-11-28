@@ -1,17 +1,8 @@
 import { HeroVideoDialog } from "@/components/magicui/hero-video-dialog";
 
-/**
- * The VideoSection component is a section for displaying a hero video.
- *
- * @prop {Video} props - The video object to display.
- * @prop {string} props.VideoSrc - The src of the video.
- * @prop {Image} props.thumbnailSrc - The thumbnail image object.
- *
- * @returns {JSX.Element} The rendered VideoSection component.
- */
 export default function VideoSection({ props }: { props: Video }) {
-  const { VideoSrc, thumbnailSrc } = props;
-
+  const { videoSrc, thumbnailSrc } = props;
+  console.log("videolink:", videoSrc);
   return (
     <section
       id="video"
@@ -19,16 +10,16 @@ export default function VideoSection({ props }: { props: Video }) {
     >
       <div className="relative">
         <HeroVideoDialog
-          className="w-full block "
+          className="w-full block shadow-xl"
           animationStyle="from-center"
-          videoSrc={VideoSrc}
+          videoSrc={videoSrc}
           thumbnailSrc={thumbnailSrc.url}
           thumbnailAlt={thumbnailSrc.alternativeText || "Hero Video"}
         />
         <HeroVideoDialog
-          className="hidden dark:block"
+          className="hidden dark:block shadow-xl"
           animationStyle="top-in-bottom-out"
-          videoSrc={VideoSrc}
+          videoSrc={videoSrc}
           thumbnailSrc={thumbnailSrc.url}
           thumbnailAlt={thumbnailSrc.alternativeText || "Hero Video"}
         />
@@ -36,3 +27,15 @@ export default function VideoSection({ props }: { props: Video }) {
     </section>
   );
 }
+
+// <iframe
+//   width="560"
+//   height="315"
+//   src="https://www.youtube.com/embed/2v2jNiLN5mk?si=Sqyhwlupr20FCrQ0"
+//   title="YouTube video player"
+//   frameborder="0"
+//   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+//   referrerpolicy="strict-origin-when-cross-origin"
+//   allowfullscreen
+// // ></iframe>;
+// <iframe width="560" height="315" src="https://www.youtube.com/embed/jxB113j8vHY?si=BSdcw9u-KTuQnbLY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

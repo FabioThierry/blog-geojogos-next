@@ -16,32 +16,18 @@ import {
 
 import NavLinks from "./NavLinks";
 
-/**
- * The Header component renders a sticky navigation header with a logo and navigation links.
- * It includes functionality to scroll smoothly to different sections of the page.
- *
- * @component
- *
- * @returns {JSX.Element} The rendered Header component.
- *
- * @example
- * <Header />
- *
- * The header contains a logo linking to the homepage and navigation buttons for "jogos", "blog", and "sobre".
- * It supports mobile responsiveness by toggling a menu with a button.
- */
 export default function Header() {
   const [activeTab, setActiveTab] = useState("home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-    setActiveTab(sectionId);
-    setMobileMenuOpen(false);
-  };
+  // const scrollToSection = (sectionId: string) => {
+  //   const section = document.getElementById(sectionId);
+  //   if (section) {
+  //     section.scrollIntoView({ behavior: "smooth" });
+  //   }
+  //   setActiveTab(sectionId);
+  //   setMobileMenuOpen(false);
+  // };
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/30 border-b border-gray-200">
@@ -49,7 +35,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-16 relative">
           <Link
             href="/"
-            className="flex-shrink-0 inline-flex space-x-5 items-center"
+            className="flex-shrink-0 inline-flex space-x-5 items-center  z-10"
           >
             <Image
               src="/geojogos.svg"
@@ -58,7 +44,7 @@ export default function Header() {
               height={50}
               className="h-10 w-auto"
             />
-            <h1 className=" text-xl font-bold text-green-800">GeoJogos</h1>
+            <h1 className="text-xl font-bold text-green-800">GeoJogos</h1>
           </Link>
           <nav className="container mx-auto px-4 py-4 absolute">
             <ul
@@ -68,29 +54,24 @@ export default function Header() {
             >
               {["jogos", "blog", "sobre"].map((tab) => (
                 <li key={tab}>
-                  <Button
-                    variant={activeTab === tab ? "default" : "ghost"}
-                    onClick={() => {
-                      setActiveTab(tab);
-                      setMobileMenuOpen(false);
-                      scrollToSection(tab);
-                    }}
-                    className="w-full lg:w-auto text-sm font-medium"
-                  >
-                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                  </Button>
+                  <Link href={`/${tab}`}>
+                    <Button
+                      variant={activeTab === tab ? "default" : "ghost"}
+                      onClick={() => {
+                        setActiveTab(tab);
+                        setMobileMenuOpen(false);
+                        // scrollToSection(tab);
+                      }}
+                      className="w-full lg:w-auto text-sm font-medium"
+                    >
+                      {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                    </Button>
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
-          <div className="z-10 items-center justify-center sm:block hidden">
-            {/* <ShimmerButton className="shadow-2xl bg-green-600 hover:bg-green-700  ">
-              {/* <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-                  Descubra nossos jogos
-                </span> 
-             Hire Us
-            </ShimmerButton>  */}
-          </div>
+          <div className="z-10 items-center justify-center sm:block hidden"></div>
 
           <div className="flex items-center">
             <Sheet>

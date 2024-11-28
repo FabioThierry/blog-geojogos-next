@@ -92,7 +92,7 @@ export default function CarouselSection({ props }: { props: Games[] }) {
       cards.push(
         <div
           key={`${game.name}-${i}`}
-          className={`px-2 flex-shrink-0`}
+          className={`px-2 flex-shrink-0 `}
           style={{ width: `${100 / visibleSlides}%` }}
         >
           <motion.div
@@ -100,7 +100,7 @@ export default function CarouselSection({ props }: { props: Games[] }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: (i % games.length) * 0.1 }}
           >
-            <Card className="h-full overflow-hidden group hover:shadow-lg transition-shadow duration-300">
+            <Card className="h-full overflow-hidden group hover:shadow-lg transition-shadow duration-300 ">
               <div className="relative h-48">
                 <Image
                   src={game.cover.url}

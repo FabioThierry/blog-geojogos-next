@@ -7,6 +7,7 @@ import VideoSection from "@/components/VideoSection";
 import BlogUpdatesSection from "@/components/BlogUpdatesSection";
 import AboutSection from "@/components/AboutSection";
 import HeroSection from "@/components/HeroSection";
+import { BlurFade } from "@/components/magicui/blur-fade";
 
 const homePagePath = "/api/home-page";
 const articlesPath = "/api/articles";
@@ -78,18 +79,23 @@ export default async function HomePage() {
   const games = gamesStrapiData.data;
 
   // console.dir(homePageStrapiData.data, { depth: null });
-  console.dir(blogPostsStrapiData.data, { depth: null });
+  // console.dir(blogPostsStrapiData.data, { depth: null });
   // console.log("Hero Section:", heroSection);
   // console.log("Hero Section:", aboutSection);
+  // console.log("Hero Section:", video);
   // console.log("GAMES Data:", games[0]);
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-blue-50">
       <main className="container mx-auto px-4 py-8">
         <HeroSection props={heroSection} />
-        <CarouselSection props={games} />
+        <BlurFade inView delay={0.25 * 6}>
+          <CarouselSection props={games} />
+        </BlurFade>
         <AboutSection props={aboutSection} />
-        <VideoSection props={video} />
-        <BlogUpdatesSection props={blogPosts} />
+        <BlurFade inView delay={0.25 * 2}>
+          <VideoSection props={video} />
+        </BlurFade>
+        <BlogUpdatesSection props={blogPosts} text={true} />
       </main>
     </div>
   );

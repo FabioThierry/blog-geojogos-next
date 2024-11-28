@@ -1,17 +1,13 @@
 import Image from "next/image";
 import { CalendarIcon, ClockIcon } from "lucide-react";
 
-type Props = {
-  articles: Article[];
-};
-
-export default function index({ articles }: Props) {
+export default function index({ props }: { props: Articles[] }) {
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8">Publicações mais recentes</h2>
         <div className="space-y-8">
-          {articles.map((article) => (
+          {props.map((article) => (
             <article
               key={article.id}
               className="flex flex-col md:flex-row gap-6 items-center"

@@ -10,7 +10,7 @@ type Link = {
 
 type Video = {
   id: number;
-  VideoSrc: string;
+  videoSrc: string;
   thumbnailSrc: Image;
 };
 

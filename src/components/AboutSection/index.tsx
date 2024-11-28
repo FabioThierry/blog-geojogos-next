@@ -1,5 +1,6 @@
 import { Dices, Earth, Gamepad2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BlurFade } from "@/components/magicui/blur-fade";
 
 /**
  * The AboutSection component is a hero section for the about page.
@@ -23,65 +24,52 @@ export default function AboutSection({ props }: { props: AboutSection }) {
               {heading}
             </h3>
           </div>
-          {/* TODO: ADD ICON */}
-          {/* <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-12">
-            {cards.map((card) => (
-              <Card key={card.id}>
-                <CardHeader className="pb-4"> 
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    {card.icon} 
+
+          <BlurFade delay={0.25} inView>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-12">
+              <Card className="shadow-xl">
+                <CardHeader className="pb-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center ">
+                    <Gamepad2 />
                   </div>
                   <CardTitle className="text-xl font-semibold pt-3">
-                    {card.title}
+                    {cards[0].title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{card.content}</p>
+                  <p className="text-muted-foreground">{cards[0].content}</p>
                 </CardContent>
               </Card>
-            ))}
-          </div> */}
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-12">
-            <Card>
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center ">
-                  <Gamepad2 />
-                </div>
-                <CardTitle className="text-xl font-semibold pt-3">
-                  {cards[0].title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{cards[0].content}</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center ">
-                  <Dices />
-                </div>
-                <CardTitle className="text-xl font-semibold pt-3">
-                  {cards[1].title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{cards[1].content}</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center ">
-                  <Earth />
-                </div>
-                <CardTitle className="text-xl font-semibold pt-3">
-                  {cards[2].title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{cards[2].content}</p>
-              </CardContent>
-            </Card>
-          </div>
+
+              <Card className="shadow-xl">
+                <CardHeader className="pb-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center ">
+                    <Dices />
+                  </div>
+                  <CardTitle className="text-xl font-semibold pt-3">
+                    {cards[1].title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{cards[1].content}</p>
+                </CardContent>
+              </Card>
+
+              <Card className="shadow-xl">
+                <CardHeader className="pb-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center ">
+                    <Earth />
+                  </div>
+                  <CardTitle className="text-xl font-semibold pt-3">
+                    {cards[2].title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{cards[2].content}</p>
+                </CardContent>
+              </Card>
+            </div>
+          </BlurFade>
         </div>
       </div>
     </section>
