@@ -56,8 +56,7 @@ type Card = {
   content: string;
 };
 
-type RichTextBlock = {
-  __component: "shared.rich-text";
+type RichText = {
   id: number;
   body: string;
 };
@@ -83,14 +82,14 @@ type Games = {
   documentId: string;
   name: string;
   description: string;
-  //slug: string;
+  slug: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
   cover: Cover;
   author: Author;
-  //images: null;
-  // main_information: MainInformation;
+  images: null;
+  main_information: RichText;
 };
 type Articles = {
   id: number;
